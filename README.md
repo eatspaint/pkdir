@@ -3,9 +3,14 @@
 In your terminal, run `brew tap eatspaint/pkdir; brew install pkdir`
 #### To use: 
 Use `pkdir` just as you would use `mkdir`, but get Pokémon instead of boring folder icons.
+```
+pkdir <name> [-n]
+```
+<name> can be a new directory, or an existing file or directory
+[-n] is an optional 3 digit flag to select a specific pokémon, by number
 #### Example:
 ```
-pkdir ~/Desktop/my_folder
+pkdir ~/Desktop/my_folder -006
 ```
 Wow, there's a cool Pokémon on my desktop, thanks eatspaint!
 ***
