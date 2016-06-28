@@ -5,7 +5,7 @@ def rand_pkmn
 end
 
 def set_icon(pkmn)
-  "#{__dir__}/fileicon set #{ARGV[0]} #{pkmn}"
+  "#{__dir__}/fileicon set '#{ARGV[0]}' #{pkmn}"
 end
 
 def choose_pkmn
@@ -21,14 +21,14 @@ end
 def main
   loc = Dir.pwd
   # If dir does not exist, create it, if it exists, prompt to update icon
-  response = `mkdir #{loc + "/" + ARGV[0]} 2>&1`
+  response = `mkdir #{loc + "/'" + ARGV[0] + "'"} 2>&1`
   if response == ''
     `#{set_icon(choose_pkmn)}`
   elsif response.include? 'File exists'
     puts "Change icon for existsing file or directory - #{ARGV[0]} ? [Yn]"
     if STDIN.gets.chomp.downcase == 'y'
-      if !`#{__dir__}/fileicon test #{ARGV[0]} 2>&1`.include?('NO')
-        `#{__dir__}/fileicon rm #{ARGV[0]}`
+      if !`#{__dir__}/fileicon test '#{ARGV[0]}' 2>&1`.include?('NO')
+        `#{__dir__}/fileicon rm '#{ARGV[0]}'`
       end
       `#{set_icon(choose_pkmn)}`
     end
