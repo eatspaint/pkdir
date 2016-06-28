@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 def rand_pkmn
-  "#{__dir__}/orig_151/#{Dir.entries(__dir__ + "/orig_151").sample}"
+  "#{__dir__}/orig_151/#{(Dir.entries(__dir__ + "/orig_151") - %w(. ..)).sample}"
 end
 
 def set_icon(pkmn)
