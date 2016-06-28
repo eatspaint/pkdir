@@ -1,6 +1,7 @@
 # pkdir
 #### Install: 
 In your terminal, run `brew tap eatspaint/pkdir; brew install pkdir`
+
 For updates, run `brew update` and then `brew upgrade pkdir`
 #### Usage: 
 Use `pkdir` just as you would use `mkdir`, but get Pokémon instead of boring folder icons.
