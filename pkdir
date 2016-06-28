@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
-loc = Dir.pwd
 
 def rand_pkmn
   "#{__dir__}/orig_151/#{Dir.entries(__dir__ + "/orig_151").sample}"
@@ -19,18 +18,41 @@ def choose_pkmn
   end
 end
 
-# If dir does not exist, create it, if it exists, prompt to update icon
-response = `mkdir #{loc + "/" + ARGV[0]} 2>&1`
-if response == ''
-  `#{set_icon(choose_pkmn)}`
-elsif response.include? 'File exists'
-  puts "Change icon for existsing file or directory - #{ARGV[0]} ? [Yn]"
-  if STDIN.gets.chomp.downcase == 'y'
-    if !`#{__dir__}/fileicon test #{ARGV[0]} 2>&1`.include?('NO')
-      `#{__dir__}/fileicon rm #{ARGV[0]}`
-    end
+def main
+  loc = Dir.pwd
+  # If dir does not exist, create it, if it exists, prompt to update icon
+  response = `mkdir #{loc + "/" + ARGV[0]} 2>&1`
+  if response == ''
     `#{set_icon(choose_pkmn)}`
+  elsif response.include? 'File exists'
+    puts "Change icon for existsing file or directory - #{ARGV[0]} ? [Yn]"
+    if STDIN.gets.chomp.downcase == 'y'
+      if !`#{__dir__}/fileicon test #{ARGV[0]} 2>&1`.include?('NO')
+        `#{__dir__}/fileicon rm #{ARGV[0]}`
+      end
+      `#{set_icon(choose_pkmn)}`
+    end
+  else
+    puts 'The wild pokémon got away!'
   end
+end
+
+def help
+  puts """pkdir is a wrapper for mkdir that adds Pokémon to everything.
+
+pkdir <dir_name> [-n]
+
+<dir_name> can be a new directory, or an existing file or directory
+[-n] is an optional 3 digit flag used to specify a pokémon, by number
+
+ex: pkdir charizards_stuff -006
+
+for more information, check https://github.com/eatspaint/pkdir
+"""
+end
+
+if ARGV[0] == '-h'
+  help
 else
-  puts 'The wild pokémon got away!'
+  main
 end
