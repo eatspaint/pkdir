@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+loc = Dir.pwd
+if `mkdir #{loc + "/" + ARGV[0]}`
+  `#{__dir__}/fileicon set #{ARGV[0]} #{__dir__}/orig_151/#{Dir.entries(__dir__ + "/orig_151").sample}`
+else
+  puts 'The wild pokémon got away!'
+end
