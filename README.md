@@ -1,4 +1,5 @@
 # pkdir
+![example image](http://eatspaint.com/pkdir_example.png)
 #### Install: 
 In your terminal, run `brew tap eatspaint/pkdir; brew install pkdir`
 
