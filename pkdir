@@ -25,7 +25,7 @@ def main
   if response == ''
     `#{set_icon(choose_pkmn)}`
   elsif response.include? 'File exists'
-    puts "Change icon for existsing file or directory - #{ARGV[0]} ? [Yn]"
+    puts "Change icon for existing file or directory - #{ARGV[0]} ? [Yn]"
     if STDIN.gets.chomp.downcase == 'y'
       if !`#{__dir__}/fileicon test '#{ARGV[0]}' 2>&1`.include?('NO')
         `#{__dir__}/fileicon rm '#{ARGV[0]}'`
