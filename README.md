@@ -1,4 +1,5 @@
 # pkdir
+![example image](pkdir_example.png)
 #### Install: 
 In your terminal, run `brew tap eatspaint/pkdir; brew install pkdir`
 
@@ -17,5 +18,8 @@ You can also run `pkdir -h` for help with commands.
 pkdir ~/Desktop/my_folder -006
 ```
 Wow, there's a cool Pokémon on my desktop, thanks eatspaint!
+
+#### System Requirements:
+Because of the fileicon bash script used, **this project is currently OSX only**. If anyone is interested in getting this running for Linux as well, let me know and we can collaborate on a solution!
 ***
 Thanks to [mklement0](https://github.com/mklement0) for [fileicon](https://github.com/mklement0/fileicon), DragonFlyCave for the [sprites](http://www.dragonflycave.com/sprites.aspx), and Pokémon for my childhood.
